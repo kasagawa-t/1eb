@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         //textViewを設定する
         textView = findViewById(R.id.textView);
 
+        //ボタン押下時の処理
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
