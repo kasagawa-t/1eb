@@ -1,0 +1,51 @@
+package com.example.kasagawa.editapp;
+
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import static com.example.kasagawa.editapp.R.id.button;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void onClickButton(View view) {
+        switch (view.getId()){
+            case R.id.button : {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                dialog.setTitle(getString(R.string.lbSaveTitle));
+
+                dialog.setPositiveButton(getString(R.string.lbYes),
+                        new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dlg, int which) {
+                            //保存処理
+
+                            finish();
+                        }
+                });
+
+                dialog.setNegativeButton(getString(R.string.lbNo),
+                    new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dlg, int which) {
+                        //キャンセル
+                    }
+                });
+
+                dialog.show();
+            }break;
+            case R.id.button2 : {
+                finish();
+            }break;
+        }
+    }
+}
